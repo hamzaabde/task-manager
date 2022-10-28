@@ -1,8 +1,10 @@
 import type { ReactElement } from "react";
-import type { ChildrenProp } from "../../utils/types/prop-types";
+import type { ChildrenProp } from "../../types/prop-types";
 
 export default function Container({ children }: ChildrenProp): ReactElement {
   return (
-    <div className='max-h-screen min-h-screen bg-base-300'>{children}</div>
+    <div className='flex max-h-screen min-h-screen flex-col overflow-hidden bg-base-300'>
+      {children}
+    </div>
   );
 }

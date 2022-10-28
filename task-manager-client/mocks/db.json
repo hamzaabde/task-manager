@@ -1,0 +1,64 @@
+{
+  "columns": [
+    { "id": 1, "name": "todo" },
+    { "id": 2, "name": "doing" },
+    { "id": 3, "name": "done" },
+    { "id": 4, "name": "todo" },
+    { "id": 5, "name": "doing" },
+    { "id": 6, "name": "done" }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Add dnd to task-manager application",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum, animi?",
+      "column": 1,
+      "subTasks": [
+        {
+          "content": "consectetur, adipisicing elit. Illum, animi?",
+          "done": false
+        },
+        {
+          "content": "Lorem ipsum dolor sit amet",
+          "done": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Lorem ipsum dolor sit amet",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum, animi?",
+      "column": 2,
+      "subTasks": [
+        {
+          "content": "consectetur, adipisicing elit. Illum, animi?",
+          "done": true
+        },
+        {
+          "content": "Lorem ipsum dolor sit amet",
+          "done": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Lorem ipsum dolor sit amet",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum, animi?",
+      "column": 2,
+      "subTasks": [
+        {
+          "content": "consectetur, adipisicing elit. Illum, animi?",
+          "done": true
+        },
+        {
+          "content": "Lorem ipsum dolor sit amet",
+          "done": true
+        },
+        {
+          "content": "Lorem ipsum dolor sit amet",
+          "done": true
+        }
+      ]
+    }
+  ]
+}

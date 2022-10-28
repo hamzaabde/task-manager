@@ -1,13 +1,15 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import MainLayout from "./layouts/MainLayout";
 
+const client = new QueryClient();
+
 function App() {
   return (
-    <>
+    <QueryClientProvider client={client}>
       <MainLayout />
-    </>
+    </QueryClientProvider>
   );
 }
 
