@@ -18,11 +18,11 @@ export default function ColumnHeader({
       <div
         className={`h-5 w-5 rounded-full ${color ? color : "bg-purple-500"}`}
       ></div>
-      <p className='justify-self-start font-semibold text-base-content/80'>
+      <p className='justify-self-start font-semibold capitalize text-base-content/80'>
         {title} ({tasksCount})
       </p>
       <div className='flex grow justify-end'>
-        <button className='btn-ghost btn-square btn-sm btn justify-self-end '>
+        <button className='btn-ghost btn-square btn-sm btn hover:bg-neutral/10'>
           <EllipsisVerticalIcon className='w-5' />
         </button>
       </div>
