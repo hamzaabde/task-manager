@@ -5,6 +5,6 @@ import { createContext } from "react";
 
 export const DataContext = createContext<ITaskColumn[]>([]);
 
-export function DateProvider(): ReactElement {
+export function DataProvider(): ReactElement {
   return <></>;
 }

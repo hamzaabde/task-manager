@@ -1,3 +1,8 @@
+export enum ModalTypes {
+  TaskForm = "TASK_FORM",
+  TaskDetail = "TASK_DETAIL",
+}
+
 export enum TaskColumnColors {
   RED = "bg-red-500",
   BLUE = "bg-blue-500",

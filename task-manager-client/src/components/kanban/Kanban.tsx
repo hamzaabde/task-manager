@@ -9,6 +9,10 @@ import { getColumns, getTasks } from "../../utils/api";
 import Column from "../column/Column";
 import AddColumnBtn from "../column/AddColumn";
 
+// test
+import TaskFormModal from "../modals/TaskFormModal";
+import TaskDetailModal from "../modals/TaskDetailModal";
+
 export default function Kanban(): ReactElement {
   const { data: columns } = useQuery<ITaskColumn[]>(["columns"], getColumns);
   const { data: tasks } = useQuery(["tasks"], getTasks);
@@ -25,6 +29,8 @@ export default function Kanban(): ReactElement {
             />
           ))}
         <AddColumnBtn />
+        <TaskFormModal />
+        <TaskDetailModal />
       </div>
     </main>
   );

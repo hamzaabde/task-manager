@@ -2,7 +2,7 @@ import type { ReactElement } from "react";
 import { ITask } from "../../types/data-types";
 
 import ColumnHeader from "./ColumnHeader";
-import Task from "../task/Task";
+import Task from "../task/TaskCard";
 
 type props = {
   id: number;
@@ -24,7 +24,7 @@ export default function Column({ tasks, id, name }: props): ReactElement {
           filteredTasks.map((task, i) => (
             <Task
               key={i}
-              {...task}
+              task={task}
             />
           ))}
       </div>

@@ -2,13 +2,18 @@ import { useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import MainLayout from "./layouts/MainLayout";
+import { ModalStateProvider } from "./context/modal-context";
 
 const client = new QueryClient();
 
 function App() {
+  document.title = "Task Manager";
+
   return (
     <QueryClientProvider client={client}>
-      <MainLayout />
+      <ModalStateProvider>
+        <MainLayout />
+      </ModalStateProvider>
     </QueryClientProvider>
   );
 }

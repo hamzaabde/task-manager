@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import type { ChildrenProp } from "../../types/prop-types";
+import type { IChildrenProp } from "../../types/prop-types";
 
 import {
   Bars3BottomLeftIcon,
