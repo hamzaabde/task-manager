@@ -7,6 +7,7 @@ class Board(models.Model):
     owner: Account = models.ForeignKey(
         Account, related_name='boards', on_delete=models.CASCADE)
     name: str = models.CharField(max_length=255, unique=True)
+    description: str = models.TextField(default='')
     created_at = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(default=now)
 
@@ -16,27 +17,16 @@ class Board(models.Model):
     def __str__(self) -> str:
         return f"{self.owner.username} - {self.name}"
 
-    @classmethod
-    def get_default_pk(cls):
-        account, created = Account.objects.get_or_create(
-            username='default_user_account')
-
-        board, created = cls.objects.get_or_create(
-            name='default board',
-            last_modified=now(),
-            owner=account,
-        )
-        return board.pk
-
 
 class Column(models.Model):
     name: str = models.CharField(max_length=255)
-    order: int = models.PositiveIntegerField()
+    position: int = models.PositiveIntegerField()
     board: Board = models.ForeignKey(
-        Board, related_name='columns', on_delete=models.CASCADE, default=Board.get_default_pk)
+        Board, related_name='columns', on_delete=models.CASCADE, default=1)
 
     class Meta:
-        ordering: list[str] = ['order']
+        unique_together = ['board', 'position']
+        ordering: list[str] = ['position']
 
     def __str__(self) -> str:
         return self.name
@@ -47,28 +37,21 @@ class Task(models.Model):
     description: str = models.TextField()
     column: Column = models.ForeignKey(
         Column, related_name='tasks', on_delete=models.CASCADE)
-    order: int = models.PositiveIntegerField()
+    position: int = models.PositiveIntegerField()
 
     class Meta:
-        ordering: list[str] = ['order']
+        unique_together = ['column', 'position']
+        ordering: list[str] = ['position']
 
     def __str__(self) -> str:
         return self.title
-
-    @classmethod
-    def get_default_pk(cls):
-        task, created = cls.objects.get_or_create(
-            title='default task',
-            description='default task description',
-            column=Column.get_default_pk)
-        return task.pk
 
 
 class SubTask(models.Model):
     note: str = models.TextField()
     done: bool = models.BooleanField(default=False)
     task: Task = models.ForeignKey(
-        Task, related_name='sub_tasks', on_delete=models.CASCADE, default=Task.get_default_pk)
+        Task, related_name='sub_tasks', on_delete=models.CASCADE, default=1)
 
     def __str__(self) -> str:
         return self.note
