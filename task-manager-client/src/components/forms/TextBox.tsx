@@ -7,7 +7,7 @@ type props = {
 
 import { useId, forwardRef } from "react";
 
-const TextInput = forwardRef<HTMLInputElement, props>(
+const TextBox = forwardRef<HTMLTextAreaElement, props>(
   ({ label, placeholder }, ref): ReactElement => {
     const id = useId();
 
@@ -19,16 +19,15 @@ const TextInput = forwardRef<HTMLInputElement, props>(
         >
           {label}
         </label>
-        <input
-          className='input-bordered input'
+        <textarea
+          className='textarea-bordered textarea h-36'
           ref={ref}
           id={id}
-          type='text'
           placeholder={placeholder || ""}
-        />
+        ></textarea>
       </div>
     );
   }
 );
 
-export default TextInput;
+export default TextBox;

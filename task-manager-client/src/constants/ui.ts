@@ -1,5 +1,6 @@
 export enum ModalTypes {
   TaskForm = "TASK_FORM",
+  ColumnForm = "COLUMN_FORM",
   TaskDetail = "TASK_DETAIL",
 }
 

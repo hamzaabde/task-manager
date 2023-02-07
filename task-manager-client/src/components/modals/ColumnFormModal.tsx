@@ -16,16 +16,16 @@ const options: option[] = [
   { id: 4, name: "Backlog", value: 4 },
 ];
 
-export default function TaskForm(): ReactElement {
+export default function ColumnForm(): ReactElement {
   const { modalType, toggle } = useContext(ModalContext);
 
-  const isOpen = modalType == ModalTypes.TaskForm;
+  const isOpen = modalType == ModalTypes.ColumnForm;
 
   const close = () => toggle({ data: null, modalType: null });
 
   return (
     <Modal
-      title='New Task'
+      title='New Column'
       open={isOpen}
       setOpen={close}
       className='pb-24'
@@ -33,15 +33,11 @@ export default function TaskForm(): ReactElement {
       <form>
         <TextInput
           label='name'
-          placeholder='e.g Take a coffee break'
+          placeholder='e.g Todo'
         />
         <TextBox
           label='description'
-          placeholder='e.g It is always good to take a break. This 16 minute break will recharge the batteries a little.'
-        />
-        <ListBox
-          label='Status'
-          options={options}
+          placeholder='e.g Puts all todo tasks in one list'
         />
       </form>
     </Modal>

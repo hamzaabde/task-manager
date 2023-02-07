@@ -25,9 +25,6 @@ export default function Header(): ReactElement {
 
         <div className='navbar-end gap-4'>
           <AddTaskBtn />
-          <button className='btn-ghost btn-square btn-sm btn hover:bg-neutral/10'>
-            <EllipsisVerticalIcon className='w-5' />
-          </button>
         </div>
       </header>
     </div>
